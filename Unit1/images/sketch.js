@@ -6,9 +6,9 @@ function preload() {
 }
 
 function setup() {
-  p1.resize(windowWidth,0);
-  p2.resize(windowWidth,0);
-  p3.resize(windowWidth,0);
+  p1.resize(windowWidth*.75,0);
+  p2.resize(windowWidth*.75,0);
+  p3.resize(windowWidth*.75,0);
   imgHeight = p1.height + p2.height + p3.height;
   resizeCanvas(windowWidth, imgHeight);
   imageMode(CENTER);
@@ -19,7 +19,8 @@ function draw() {
   image(p2,width/2,p1.height+(p2.height/2));
   image(p3,width/2,p1.height+p2.height+(p3.height/2));
 }
-
+/*
 function windowResized() {
   setup();
 }
+*/
