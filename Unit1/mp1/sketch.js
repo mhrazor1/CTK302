@@ -1,5 +1,5 @@
 function preload() {
-  f1 = loadFont('assets/akira.otf');
+  f1 = loadFont('assets/LGC.ttf');
   body = loadModel('assets/modelBody.obj', true);
   eye = loadModel('assets/modelEye.obj', true);
   time = 0;
@@ -13,22 +13,25 @@ function setup() {
   eyeZ = height / 2 / tan((30 * PI) / 180); // The default distance the camera is away from the origin.
   normalMaterial();
   colRest = color('rgb(134, 216, 239)');
-  colActive = color('rgb(232, 96, 96)');
+  colActive = color('hsl(0, 75%, 75%)');
   last = colRest;
-  let colBlend;
 }
 
 function draw() {
+  background('#2d2d2d');
+  pointLight(color('hsl(0, 0%, 80%)'), 50, -windowHeight/3, eyeZ);
   textFont(f1);
   textAlign(CENTER);
-  background('#2d2d2d');
+  textSize(25);
+  push();
+  fill('#d6d6d6');
+  text("This is QUB, a local security droid.\nThey're new to the force and a little skittish,\n so don't move your mouse too fast,\n or they might get scared.",0,-windowHeight/3);
+  pop();
 
   speed = abs(winMouseX - pwinMouseX);
 
-  let eyeMat;
-
   x = (width / 2) - mouseX;
-  y = (width / 2) - mouseY;
+  y = (height / 2) - mouseY;
 
   thetaX = (atan(x / eyeZ));
   thetaY = (atan(y / eyeZ));
@@ -37,13 +40,14 @@ function draw() {
 
   rotateY(thetaX * -1);
   rotateX(thetaY);
-  ambientLight('#bbbbbb');
-  ambientMaterial('hsl(0, 0%, 90%)');
+  ambientLight('#464646');
+  ambientMaterial('hsl(0, 0%, 50%)');
   model(body);
 
   if (speed >= 50 && speed < 1000) {
     if (beep.isPlaying() === false && last === colRest) {
       beep.play();
+      //print('beep');
     }
     ambientMaterial(colActive);
     last = color(colActive);;
