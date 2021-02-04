@@ -49,7 +49,6 @@ function draw() {
   if (speed >= 60 && speed < 1000) {
     if (beep.isPlaying() === false && last === colRest) {
       beep.play();
-      //print('beep');
     }
     ambientMaterial(colActive);
     last = color(colActive);;
