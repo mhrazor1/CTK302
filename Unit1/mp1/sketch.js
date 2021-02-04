@@ -22,8 +22,8 @@ function setup() {
   print(windowWidth + ', ' + windowHeight);
   eyeZ = height / 2 / tan((30 * PI) / 180); // The default distance the camera is away from the origin.
   normalMaterial();
-  colRest = color('rgb(134, 216, 239)');
-  colActive = color('hsl(0, 75%, 75%)');
+  colRest = color('rgb(116, 210, 236)');
+  colActive = color('hsl(0, 74%, 63%)');
   last = colRest;
 }
 
