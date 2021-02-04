@@ -12,14 +12,13 @@ function setup() {
   p3.resize(windowWidth*.75,0);
   imgHeight = p1.height + p2.height + p3.height;
   resizeCanvas(windowWidth, imgHeight);
-  graphics = createGraphics(windowWidth,imgHeight, P2D);
   imageMode(CENTER);
 }
 
 function draw() {
-  graphics.image(p1,width/2,p1.height/2);
-  graphics.image(p2,width/2,p1.height+(p2.height/2));
-  graphics.image(p3,width/2,p1.height+p2.height+(p3.height/2));
+  image(p1,width/2,p1.height/2);
+  image(p2,width/2,p1.height+(p2.height/2));
+  image(p3,width/2,p1.height+p2.height+(p3.height/2));
 }
 
 function windowResized() {
