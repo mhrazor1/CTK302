@@ -46,7 +46,7 @@ function draw() {
   ambientMaterial('hsl(0, 0%, 60%)');
   model(body);
 
-  if (speed >= 50 && speed < 1000) {
+  if (speed >= 60 && speed < 1000) {
     if (beep.isPlaying() === false && last === colRest) {
       beep.play();
       //print('beep');
