@@ -4,7 +4,9 @@ function preload() {
   eye = loadModel('assets/modelEye.obj', true);
   time = 0;
   beep = loadSound('assets/beep.wav');
-  beep.setVolume(0.3);
+  beep.setVolume(0.2);
+  rest = loadSound('assets/rest.wav');
+  rest.setVolume(0.1);
 }
 
 function setup() {
@@ -18,7 +20,7 @@ function setup() {
 }
 
 function draw() {
-  background('#2d2d2d');
+  background('rgb(107, 80, 86)');
   pointLight(color('hsl(0, 0%, 80%)'), 50, -windowHeight/3, eyeZ);
   textFont(f1);
   textAlign(CENTER);
@@ -41,7 +43,7 @@ function draw() {
   rotateY(thetaX * -1);
   rotateX(thetaY);
   ambientLight('#464646');
-  ambientMaterial('hsl(0, 0%, 50%)');
+  ambientMaterial('hsl(0, 0%, 60%)');
   model(body);
 
   if (speed >= 50 && speed < 1000) {
@@ -53,6 +55,9 @@ function draw() {
     last = color(colActive);;
     time = millis();
   } else if (speed < 5 && (millis() - time) > 1000) {
+    if (rest.isPlaying() === false && last === colActive) {
+      rest.play();
+    }
     ambientMaterial(colRest);
     last = color(colRest);
   } else {
@@ -69,4 +74,8 @@ function mouseReleased() {
 
 function windowResized() {
   setup();
+}
+
+function mousePressed(){
+  userStartAudio();
 }
