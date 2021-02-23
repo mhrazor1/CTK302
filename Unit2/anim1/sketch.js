@@ -1,17 +1,19 @@
-let x=0;
+let xPos=0;
+let txt = 'i am speed';
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(windowWidth,windowHeight);
 }
 
 function draw() {
   background('#EEEEEE')
   fill('black');
-  rect(x, 100, 50,50);
+  //rect(xPos, 100, 50, 50);
+  textSize(48);
+  text(txt,xPos,height/2);
+  xPos+=15;
 
-  x+=10;
-
-  if(x>windowWidth)
-  { x=0}
+  if(xPos>windowWidth)
+  { xPos=0}
 
 }
