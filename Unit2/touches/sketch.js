@@ -35,8 +35,8 @@ function draw() {
       circle(touches[1].x,touches[1].y,100);
       circle(touches[2].x,touches[2].y,100);
       break ;
-
-
   }
-
+}
+function mousePressed() {
+  return false;
 }
