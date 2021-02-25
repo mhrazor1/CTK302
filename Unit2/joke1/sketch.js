@@ -2,7 +2,7 @@ let state = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  textAlign(CENTER);
+  textAlign(CENTER, CENTER);
   textSize(48);
 }
 
