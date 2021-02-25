@@ -2,6 +2,7 @@ let numberOfTouches ;
 
 function setup() {
   createCanvas(400, 400);
+  noStroke();
 }
 
 function draw() {
@@ -17,17 +18,19 @@ function draw() {
       case 1:
       text("it's kind of lonely here", 5, 22) ;
       fill('#ff6670')
-      circle(touches[0].x,touches[0].y,20);
+      circle(touches[0].x,touches[0].y,50);
       break ;
 
       case 2:
       text("two fingers are touching the screen", 5, 22) ;
-            // put a picture here
+      fill('#ff6670')
+      circle(touches[0].x,touches[0].y,50);
       break ;
 
       case 3:
-     text("three are touching the screen", 5, 22) ;
-            // put a picture here
+      text("three are touching the screen", 5, 22) ;
+      fill('#ff6670')
+      circle(touches[0].x,touches[0].y,50);
       break ;
 
 
