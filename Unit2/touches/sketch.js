@@ -1,7 +1,7 @@
 let numberOfTouches ;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
   noStroke();
 }
 
