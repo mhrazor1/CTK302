@@ -17,6 +17,7 @@ function preload() {
   rest.setVolume(0.1);
   alarm = loadSound('assets/alarm.wav');
   alarm.setVolume(0.3);
+  back = loadImage('assets/back.jpg');
 }
 
 function setup() {
@@ -39,7 +40,7 @@ function draw() {
 
   push();
   fill('#d6d6d6');
-  text("This is QUB, a local security droid.\nThey're new to the force and a little skittish,\n so don't move your mouse too fast,\n or they might get scared.\nAnd especially DO NOT CLICK",0,-windowHeight/2.5);
+  text("This is QUB, a local security droid.\nThey're new to the force and a little skittish,\n so don't move your mouse too fast,\n or they might get scared.\nAnd especially DO NOT CLICK!",0,-windowHeight/2.5);
   pop();
 
   speed = abs(winMouseX - pwinMouseX); //calculcate mouse speed between current and last frame
