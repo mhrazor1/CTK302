@@ -60,7 +60,6 @@ function draw() {
   if (xpos < windowWidth/2+300) {
     xpos = xpos +5;
     translate(xpos,0);
-
   } else{
     xpos = (-windowWidth/2)-300;
   }
