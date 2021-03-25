@@ -10,12 +10,10 @@ function preload() {
   songs[0].setVolume(0.5);
   songs.push(loadSound('assets/runwayN.wav'));
   songs[1].setVolume(0.3);
-  songs.push(loadSound('assets/TMVE.wav'));
-  songs[2].setVolume(0.5);
   songs.push(loadSound('assets/weepingBirch.wav'));
-  songs[3].setVolume(0.5);
+  songs[2].setVolume(0.5);
 
-  currentSong = round(random(0,3));
+  currentSong = round(random(0,2));
 }
 
 function setup(resize) {
