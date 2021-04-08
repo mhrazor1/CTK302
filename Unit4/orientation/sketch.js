@@ -58,11 +58,11 @@ function draw() {
   text("z = " + z.toFixed(4), 25, 190);
 
   // Text that makes CTK type in the background
-  fill('white');
-  noStroke();
-  textSize(300);
-  textAlign(CENTER);
-  text("ctk", width / 2, height / 2);
+  // fill('white');
+  // noStroke();
+  // textSize(300);
+  // textAlign(CENTER);
+  // text("ctk", width / 2, height / 2);
 
 }
 
