@@ -26,6 +26,7 @@ function draw() {
   for (var i = 0; i < curves.length; i++) {
     curves[i].display();
   }
+  text("number of updates " + num, 10, 140) ;
 
 }
 
@@ -35,14 +36,12 @@ function positionPing(position) {
   pings++;
   text("lat: " + position.latitude, 10, 40);
   text("long: " + position.longitude, 10, 90);
-	text("number of updates " + num, 10, 140) ;
 
   mappedLat = map(position.latitude,locationData.latitude-1,locationData.latitude+1,0,windowWidth);
   mappedLong = map(position.longitude,locationData.longitude-1,locationData.longitude+1,0,windowWidth);
   lastDistance = distance;
   console.log(distance);
 	distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi') ;
-	text("you have moved " + distance, 10, 190);
   if (abs(distance - lastDistance) > 0.005 || pings == 1) {
     num++ ;
     for (var i = 0; i <= 3; i++) {
