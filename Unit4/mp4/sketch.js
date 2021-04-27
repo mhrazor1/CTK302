@@ -20,21 +20,19 @@ function setup() {
   center = createVector(windowWidth/2,windowHeight/2);
 	num = 0 ;
   pings = 0;
-  intervalCurrentPosition(positionPing, 3000) ;
+  intervalCurrentPosition(positionPing, 10000) ;
 	createCanvas(displayWidth, displayHeight) ;
 }
 
 function draw() {
   background('white');
-  //noFill();
   for (var i = 0; i < curves.length; i++) {
     curves[i].display();
 
   }
-  //textSize(24) ;
-  text('updates: ' + num, 10, 40);
-  text('distance: ' + distance, 10,60);
-  text('last dist: ' + point1.latitude + ' ' + point1.longitude, 10, 80);
+  // text('updates: ' + num, 10, 40);
+  // text('distance: ' + distance, 10,60);
+  // text('last dist: ' + point1.latitude + ' ' + point1.longitude, 10, 80);
 }
 
 function positionPing(position) {
@@ -44,7 +42,7 @@ function positionPing(position) {
   mappedLong = map(position.longitude,locationData.longitude-1,locationData.longitude+1,0,windowWidth);
 
   console.log(distance);
-	//distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi') ;
+
   distance = calcGeoDistance(point1.latitude,point1.longitude,position.latitude,position.longitude);
   if (distance > 0.005 || pings == 1) {
     point1 = position;
@@ -53,7 +51,6 @@ function positionPing(position) {
       switch (round(random(0,1))) {
         case 0:
           curves.push(new Line);
-          print('line ');
           break;
         case 1:
           curves.push(new Bez);
