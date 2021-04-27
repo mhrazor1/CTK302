@@ -1,16 +1,19 @@
 var num ;
 var pings;
 var distance;
-var lastDistance
+var lastDistance;
 var locationData;
 var curves = [];
 var mappedLat;
 var mappedLong;
-var center
+var center;
+var point1;
+var point2;
 
 function preload() {
 
     locationData =  getCurrentPosition();
+    point1 = locationData;
 }
 
 function setup() {
@@ -35,14 +38,16 @@ function draw() {
 }
 
 function positionPing(position) {
+
   pings++;
   mappedLat = map(position.latitude,locationData.latitude-1,locationData.latitude+1,0,windowWidth);
   mappedLong = map(position.longitude,locationData.longitude-1,locationData.longitude+1,0,windowWidth);
 
   console.log(distance);
-	distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi') ;
-  if (abs(distance - lastDistance) > 0.001 || pings == 1) {
-    lastDistance = distance;
+	//distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi') ;
+  distance = calcGeoDistance(point1.latitude,point1.longitude,position.latitude,position.longitude);
+  if (distance > 0.001 || pings == 1) {
+    point1 = position;
     num++ ;
     for (var i = 0; i <= 3; i++) {
       switch (round(random(0,1))) {
