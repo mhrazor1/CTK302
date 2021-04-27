@@ -46,7 +46,7 @@ function positionPing(position) {
   console.log(distance);
 	//distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi') ;
   distance = calcGeoDistance(point1.latitude,point1.longitude,position.latitude,position.longitude);
-  if (distance > 0.001 || pings == 1) {
+  if (distance > 0.005 || pings == 1) {
     point1 = position;
     num++ ;
     for (var i = 0; i <= 3; i++) {
