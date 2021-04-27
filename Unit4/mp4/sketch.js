@@ -43,7 +43,7 @@ function positionPing(position) {
   console.log(distance);
 	distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi') ;
 	text("you have moved " + distance, 10, 190);
-  if (abs(distance - lastDistance) > 0.05 || pings == 1) {
+  if (abs(distance - lastDistance) > 0.005 || pings == 1) {
     num++ ;
     for (var i = 0; i <= 3; i++) {
       switch (round(random(0,1))) {
