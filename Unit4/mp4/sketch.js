@@ -23,26 +23,25 @@ function setup() {
 
 function draw() {
   background('white');
+  //noFill();
   for (var i = 0; i < curves.length; i++) {
     curves[i].display();
-  }
-  text("number of updates " + num, 10, 140) ;
 
+  }
+  //textSize(24) ;
+  text('updates: ' + num, 10, 140);
+  text('distance: ' + distance, 10, 160);
+  text('last dist: ' + lastDistance, 10, 180);
 }
 
 function positionPing(position) {
-  noFill();
-	textSize(24) ;
   pings++;
-  text("lat: " + position.latitude, 10, 40);
-  text("long: " + position.longitude, 10, 90);
-
   mappedLat = map(position.latitude,locationData.latitude-1,locationData.latitude+1,0,windowWidth);
   mappedLong = map(position.longitude,locationData.longitude-1,locationData.longitude+1,0,windowWidth);
   lastDistance = distance;
   console.log(distance);
 	distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi') ;
-  if (abs(distance - lastDistance) > 0.005 || pings == 1) {
+  if (abs(distance - lastDistance) > 0.001 || pings == 1) {
     num++ ;
     for (var i = 0; i <= 3; i++) {
       switch (round(random(0,1))) {
@@ -68,8 +67,10 @@ class Line {
     this.y2 = center.y+random(-num*distance,num*distance);
   }
   display(){
+    push();
     noFill();
     line(this.x1,this.y1,this.x2,this.y2);
+    pop();
   }
 }
 
@@ -85,7 +86,9 @@ class Bez {
     this.y4 = center.y+random(-num*distance,num*distance);
   }
   display(){
+    push();
     noFill();
     bezier(this.x1,this.y1,this.x2,this.y2,this.x3,this.y3,this.x4,this.y4);
+    pop();
   }
 }
