@@ -41,7 +41,7 @@ function positionPing(position) {
 
   console.log(distance);
 	distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi') ;
-  if (abs(distance - lastDistance) > 0.0005 || pings == 1) {
+  if (abs(distance - lastDistance) > 0.0002 || pings == 1) {
     lastDistance = distance;
     num++ ;
     for (var i = 0; i <= 3; i++) {
@@ -64,8 +64,8 @@ class Line {
   constructor(){
     this.x1 = center.x+random(-num*num/2,num*num/2);
     this.y1 = center.y+random(-num*num/2,num*num/2);
-    this.x2 = center.x+random(-num*distance,num*distance);
-    this.y2 = center.y+random(-num*distance,num*distance);
+    this.x2 = center.x+random(-num*(distance*10),num*(distance*10));
+    this.y2 = center.y+random(-num*(distance*10),num*(distance*10));
   }
   display(){
     push();
@@ -83,8 +83,8 @@ class Bez {
     this.y2 = this.y1+random(-num*num,num*num);
     this.x3 = this.x2+random(-num*num,num*num);
     this.y3 = this.y2+random(-num*num,num*num);
-    this.x4 = center.x+random(-num*distance,num*distance);
-    this.y4 = center.y+random(-num*distance,num*distance);
+    this.x4 = center.x+random(-num*(distance*10),num*(distance*10));
+    this.y4 = center.y+random(-num*(distance*10),num*(distance*10));
   }
   display(){
     push();
