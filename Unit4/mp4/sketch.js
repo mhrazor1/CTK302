@@ -29,9 +29,9 @@ function draw() {
 
   }
   //textSize(24) ;
-  text('updates: ' + num, 10, 140);
-  text('distance: ' + distance, 10, 160);
-  text('last dist: ' + lastDistance, 10, 180);
+  text('updates: ' + num, 10, 40);
+  text('distance: ' + distance, 10,60);
+  text('last dist: ' + lastDistance, 10, 80);
 }
 
 function positionPing(position) {
@@ -41,7 +41,7 @@ function positionPing(position) {
 
   console.log(distance);
 	distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi') ;
-  if (abs(distance - lastDistance) > 0.0002 || pings == 1) {
+  if (abs(distance - lastDistance) > 0.001 || pings == 1) {
     lastDistance = distance;
     num++ ;
     for (var i = 0; i <= 3; i++) {
