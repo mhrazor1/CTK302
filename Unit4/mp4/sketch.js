@@ -38,10 +38,11 @@ function positionPing(position) {
   pings++;
   mappedLat = map(position.latitude,locationData.latitude-1,locationData.latitude+1,0,windowWidth);
   mappedLong = map(position.longitude,locationData.longitude-1,locationData.longitude+1,0,windowWidth);
-  lastDistance = distance;
+
   console.log(distance);
 	distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi') ;
   if (abs(distance - lastDistance) > 0.001 || pings == 1) {
+    lastDistance = distance;
     num++ ;
     for (var i = 0; i <= 3; i++) {
       switch (round(random(0,1))) {
