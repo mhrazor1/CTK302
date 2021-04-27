@@ -34,7 +34,7 @@ function draw() {
   //textSize(24) ;
   text('updates: ' + num, 10, 40);
   text('distance: ' + distance, 10,60);
-  text('last dist: ' + lastDistance, 10, 80);
+  text('last dist: ' + point1.latitude + ' ' + point1.longitude, 10, 80);
 }
 
 function positionPing(position) {
